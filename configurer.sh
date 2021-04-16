@@ -9,10 +9,10 @@ do
 done
 mkdir $mount_dir/$db_name/logs
 
-echo "1. ЗАДАНИЕ ЗНАЧЕНИЙ НЕОБХОДИМЫХ ДЛЯ КОНФИГУРАЦИИ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ"
+echo "1. ЗАДАНИЕ ЗНАЧЕНИЙ НЕОБХОДИМЫМ ДЛЯ КОНФИГУРАЦИИ ПЕРЕМЕННЫМ ОКРУЖЕНИЯ"
 export ORACLE_BASE=/u01/app/oracle
 export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1
-export ORACLE_SID=kulbako_saraev_p33112
+export ORACLE_SID=tischenko_bogdan_vaskin_alexey_p33112
 export PATH=$PATH:$ORACLE_HOME/bin
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 export NLS_LANG=American_America.UTF8
@@ -20,13 +20,11 @@ export NLS_SORT=AMERICAN
 export NLS_DATE_LANGUAGE=AMERICAN
 export NLS_DATE_FORMAT="DD.MM.YYYY"
 
-# Установка Oracle Database 11G (в лабе этот шаг отсутствует)
-
 echo "2. ЗАДАНИЕ МЕТОДА АУТЕНТИФИКАЦИИ АДМИНИСТРАТОРА"
 cd $ORACLE_HOME/dbs   # переход в стандартный каталог для конфигов
 orapwd file=ora$ORACLE_SID force=Y    # создание файла аутентификации
 
-echo "3. СОЗДАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛЫ, НЕОБХОДИМЫХ ДЛЯ ИНИЦИАЛИЗАЦИИ И ЗАПУСКА ЭКЗЕМПЛЯРА ORACLE"
+echo "3. СОЗДАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ, НЕОБХОДИМЫХ ДЛЯ ИНИЦИАЛИЗАЦИИ И ЗАПУСКА ЭКЗЕМПЛЯРА ORACLE"
 echo "
 DB_NAME=$db_name
 DB_BLOCK_SIZE=16384
