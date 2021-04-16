@@ -25,7 +25,7 @@ CREATE TABLESPACE DARK_BLACK_DISK
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
         '/u01/pdq35/lastuser/node03/darkblackdisk02.dbf'
-        SIZE 20M,
+        SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
@@ -35,7 +35,7 @@ CREATE TABLESPACE DARK_BLACK_DISK
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
         '/u01/pdq35/lastuser/node03/darkblackdisk04.dbf'
-        SIZE 20M,
+        SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED;
@@ -48,7 +48,7 @@ CREATE TABLESPACE COOL_GOLD_OVEN
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
         '/u01/pdq35/lastuser/node02/coolgoldoven02.dbf'
-        SIZE 20M,
+        SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED;
