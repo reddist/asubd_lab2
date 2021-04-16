@@ -1,15 +1,15 @@
-echo "0. ПОДГОТОВКА НЕОБХОДИМЫХ КАТАЛОГОВ"
+echo "> подготовка каталогов"
 mount_dir=/u01/pdq35
 db_name=lastuser
-mkdir -p mount_dir   # создание точки монтирования
-chown oracle:oinstall mount_dir   # задание прав на точку
+mkdir -p mount_dir   
+chown oracle:oinstall mount_dir 
 for (( i = 1; i <= 4; i++ ))
 do
   mkdir -p $mount_dir/$db_name/node0"$i"
 done
 mkdir $mount_dir/$db_name/logs
 
-echo "1. ЗАДАНИЕ ЗНАЧЕНИЙ НЕОБХОДИМЫМ ДЛЯ КОНФИГУРАЦИИ ПЕРЕМЕННЫМ ОКРУЖЕНИЯ"
+echo "> назначение переменных окружения"
 export ORACLE_BASE=/u01/app/oracle
 export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1
 export ORACLE_SID=tischenko_bogdan_vaskin_alexey_p33112
@@ -20,25 +20,25 @@ export NLS_SORT=AMERICAN
 export NLS_DATE_LANGUAGE=AMERICAN
 export NLS_DATE_FORMAT="DD.MM.YYYY"
 
-echo "2. ЗАДАНИЕ МЕТОДА АУТЕНТИФИКАЦИИ АДМИНИСТРАТОРА"
-cd $ORACLE_HOME/dbs   # переход в стандартный каталог для конфигов
-orapwd file=ora$ORACLE_SID force=Y    # создание файла аутентификации
+echo "> назначение метода аутентификации"
+cd $ORACLE_HOME/dbs 
+orapwd file=ora$ORACLE_SID force=Y    
 
-echo "3. СОЗДАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ, НЕОБХОДИМЫХ ДЛЯ ИНИЦИАЛИЗАЦИИ И ЗАПУСКА ЭКЗЕМПЛЯРА ORACLE"
+echo "> создание конфигурационных файлов"
 echo "
 DB_NAME=$db_name
 DB_BLOCK_SIZE=16384
 SGA_TARGET=440M
-" >> init$ORACLE_SID.ora    # создание файла инициализации экземпляра
+" >> init$ORACLE_SID.ora  
 
-echo "4. ЗАПУСК ЭКЗЕМПЛЯРА ORACLE"
+echo "> запуск экземпляра"
 exit | sqlplus /nolog @mounter.sql
 
-echo "5. СОЗДАНИЕ НОВОЙ БАЗЫ ДАННЫХ"
+echo "> создание новой базы"
 exit | sqlplus /nolog @db_creator.sql
 
-echo "6. СОЗДАНИЕ ДОПОЛНИТЕЛЬНЫХ ТАБЛИЧНЫХ ПРОСТРАНСТВ"
+echo "> создание дополнительных табличных пространств"
 exit | sqlplus /nolog @tb_creator.sql
 
-echo "7. ФОРМИРОВАНИЕ ПРЕДСТАВЛЕНИЯ СЛОВАРЯ ДАННЫХ"
+echo "> формирование представления словаря данных"
 exit | sqlplus /nolog @view_creator.sql
