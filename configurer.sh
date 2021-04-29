@@ -1,18 +1,20 @@
 echo "> подготовка каталогов"
 mount_dir=/u01/pdq35
 db_name=lastuser
-mkdir -p mount_dir   
+ORADATA=$mount_dir/oradata/$db_name
+mkdir -p $mount_dir   
 chown oracle:oinstall mount_dir 
 for (( i = 1; i <= 4; i++ ))
 do
-  mkdir -p $mount_dir/$db_name/node0"$i"
+  mkdir -p $ORADATA/node0"$i"
 done
 mkdir $mount_dir/$db_name/logs
 
 echo "> назначение переменных окружения"
 export ORACLE_BASE=/u01/app/oracle
 export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1
-export ORACLE_SID=tischenko_bogdan_vaskin_alexey_p33112
+export ORACLE_SID=TischenkoBogdan_VaskinAlexey_33112
+export ORADATA
 export PATH=$PATH:$ORACLE_HOME/bin
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 export NLS_LANG=American_America.UTF8

@@ -1,17 +1,17 @@
 CONNECT / AS sysdba;
 CREATE TABLESPACE BIG_BLUE_HAIR
     DATAFILE
-        '/u01/pdq35/lastuser/node01/bigbluehair01.dbf'
+        $ORADATA'/node01/bigbluehair01.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
-        '/u01/pdq35/lastuser/node02/bigbluehair02.dbf'
+        $ORADATA'/node02/bigbluehair02.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
-        '/u01/pdq35/lastuser/node02/bigbluehair03.dbf'
+        $ORADATA'/node02/bigbluehair03.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
@@ -19,22 +19,22 @@ CREATE TABLESPACE BIG_BLUE_HAIR
 
 CREATE TABLESPACE DARK_BLACK_DISK
     DATAFILE
-        '/u01/pdq35/lastuser/node01/darkblackdisk01.dbf'
+        $ORADATA'/node01/darkblackdisk01.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
-        '/u01/pdq35/lastuser/node03/darkblackdisk02.dbf'
+        $ORADATA'/node03/darkblackdisk02.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
-        '/u01/pdq35/lastuser/node01/darkblackdisk03.dbf'
+        $ORADATA'/node01/darkblackdisk03.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
-        '/u01/pdq35/lastuser/node03/darkblackdisk04.dbf'
+        $ORADATA'/node03/darkblackdisk04.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
@@ -42,12 +42,12 @@ CREATE TABLESPACE DARK_BLACK_DISK
 
 CREATE TABLESPACE COOL_GOLD_OVEN
     DATAFILE
-        '/u01/pdq35/lastuser/node04/coolgoldoven01.dbf'
+        $ORADATA'/node04/coolgoldoven01.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
         MAXSIZE UNLIMITED,
-        '/u01/pdq35/lastuser/node02/coolgoldoven02.dbf'
+        $ORADATA'/node02/coolgoldoven02.dbf'
         SIZE 20M
         REUSE
         AUTOEXTEND ON
