@@ -11,8 +11,12 @@ SELECT sess.process, sess.status, sess.username, sess.schemaname, sql.sql_text
 FROM v$session sess,
 v$sql sql
 WHERE sql.sql_id(+) = sess.sql_id
-AND sess.type = 'USER'
+AND sess.type = 'USER';
 
 # вывести процессы в ksh
 ps -ef | grep smon
 ps -ef | grep ora_
+
+
+# копировать с гелиоса
+scp -r s265058@se.ifmo.ru:/home/s265058/asubd_lab2 .

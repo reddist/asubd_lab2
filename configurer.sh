@@ -2,13 +2,13 @@ echo "> подготовка каталогов"
 mount_dir=/u01/pdq35
 db_name=lastuser
 ORADATA=$mount_dir/oradata/$db_name
-mkdir -p $mount_dir   
+mkdir -p $mount_dir
 chown oracle:oinstall mount_dir 
 for (( i = 1; i <= 4; i++ ))
 do
   mkdir -p $ORADATA/node0"$i"
 done
-mkdir $mount_dir/$db_name/logs
+mkdir $ORADATA/logs
 
 echo "> назначение переменных окружения"
 export ORACLE_BASE=/u01/app/oracle
@@ -42,5 +42,5 @@ exit | sqlplus /nolog @db_creator.sql
 echo "> создание дополнительных табличных пространств"
 exit | sqlplus /nolog @tb_creator.sql
 
-echo "> формирование представления словаря данных"
-exit | sqlplus /nolog @view_creator.sql
+#echo "> формирование представления словаря данных"
+#exit | sqlplus /nolog @view_creator.sql
