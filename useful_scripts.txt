@@ -20,3 +20,8 @@ ps -ef | grep ora_
 
 # копировать с гелиоса
 scp -r s265058@se.ifmo.ru:/home/s265058/asubd_lab2 .
+
+# показать таблицу STUDENTS
+SELECT owner, table_name from dba_tables where table_name='STUDENTS';
+
+
